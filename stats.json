@@ -837,8 +837,8 @@
       "path---redirect-to-codepen-reconciliation-index-used-as-key-5b6dff370a620c3c7ca0.js.map"
     ],
     "path---docs-hooks-intro-html": [
-      "path---docs-hooks-intro-html-d7ddc173a38800b0c139.js",
-      "path---docs-hooks-intro-html-d7ddc173a38800b0c139.js.map"
+      "path---docs-hooks-intro-html-a317278dde95c87a9df6.js",
+      "path---docs-hooks-intro-html-a317278dde95c87a9df6.js.map"
     ],
     "path---blog-2015-02-20-introducing-relay-and-graphql-html": [
       "path---blog-2015-02-20-introducing-relay-and-graphql-html-a5d169af13b5c0e9f1a3.js",
@@ -1101,9 +1101,9 @@
       "path---redirect-to-codepen-16-3-release-blog-post-fancy-button-example-96cb387294f2f9e75ddc.js.map"
     ],
     "app": [
-      "app-5dc5579de956794de411.js",
+      "app-59f2e0cabcd295446d39.js",
       "build-js-styles.css",
-      "app-5dc5579de956794de411.js.map",
+      "app-59f2e0cabcd295446d39.js.map",
       "build-js-styles.css.map"
     ],
     "path---docs-shallow-compare-html": [
