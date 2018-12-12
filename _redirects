@@ -18,6 +18,7 @@
 /docs/multiple-components.html  /docs/composition-vs-inheritance.html  302
 /tips/false-in-jsx.html  /docs/conditional-rendering.html  302
 /docs/add-react-to-a-new-app.html  /docs/create-a-new-react-app.html  302
+/docs/events-ko-KR.html  /docs/handling-events.html  302
 /docs/  /docs/getting-started.html  302
 /docs/index.html  /docs/getting-started.html  302
 /docs/getting-started-ko-KR.html  /docs/getting-started.html  302
@@ -30,10 +31,9 @@
 /docs/package-management.html  /docs/getting-started.html  302
 /docs/language-tooling.html  /docs/getting-started.html  302
 /docs/environments.html  /docs/getting-started.html  302
-/docs/events-ko-KR.html  /docs/handling-events.html  302
 /docs/displaying-data.html  /docs/rendering-elements.html  302
-/docs/react-api.html#typechecking-with-proptypes  /docs/typechecking-with-proptypes.html  302
 /docs/webcomponents.html  /docs/web-components.html  302
+/docs/react-api.html#typechecking-with-proptypes  /docs/typechecking-with-proptypes.html  302
 /docs/conferences.html  /community/conferences.html  302
 /docs/animation-ja-JP.html  /docs/animation.html  302
 /docs/animation-ko-KR.html  /docs/animation.html  302
@@ -52,7 +52,6 @@
 /docs/jsx-in-depth-ko-KR.html  /docs/jsx-in-depth.html  302
 /docs/flux-overview.html  /docs/lifting-state-up.html  302
 /docs/flux-todo-list.html  /docs/lifting-state-up.html  302
-/docs/advanced-performance.html  /docs/optimizing-performance.html  302
 /docs/tags-and-attributes.html  /docs/dom-elements.html  302
 /docs/dom-differences.html  /docs/dom-elements.html  302
 /docs/special-non-dom-attributes.html  /docs/dom-elements.html  302
@@ -60,6 +59,7 @@
 /tips/inline-styles.html  /docs/dom-elements.html  302
 /tips/style-props-value-px.html  /docs/dom-elements.html  302
 /tips/dangerously-set-inner-html.html  /docs/dom-elements.html  302
+/docs/advanced-performance.html  /docs/optimizing-performance.html  302
 /docs/reference.html  /docs/react-api.html  302
 /docs/clone-with-props.html  /docs/react-api.html  302
 /docs/top-level-api.html  /docs/react-api.html  302
