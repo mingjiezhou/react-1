@@ -32,8 +32,8 @@
 /docs/environments.html  /docs/getting-started.html  302
 /docs/events-ko-KR.html  /docs/handling-events.html  302
 /docs/displaying-data.html  /docs/rendering-elements.html  302
-/docs/webcomponents.html  /docs/web-components.html  302
 /docs/react-api.html#typechecking-with-proptypes  /docs/typechecking-with-proptypes.html  302
+/docs/webcomponents.html  /docs/web-components.html  302
 /docs/conferences.html  /community/conferences.html  302
 /docs/animation-ja-JP.html  /docs/animation.html  302
 /docs/animation-ko-KR.html  /docs/animation.html  302
@@ -50,9 +50,9 @@
 /tips/children-props-type.html  /docs/jsx-in-depth.html  302
 /docs/jsx-in-depth-zh-CN.html  /docs/jsx-in-depth.html  302
 /docs/jsx-in-depth-ko-KR.html  /docs/jsx-in-depth.html  302
+/docs/advanced-performance.html  /docs/optimizing-performance.html  302
 /docs/flux-overview.html  /docs/lifting-state-up.html  302
 /docs/flux-todo-list.html  /docs/lifting-state-up.html  302
-/docs/advanced-performance.html  /docs/optimizing-performance.html  302
 /docs/tags-and-attributes.html  /docs/dom-elements.html  302
 /docs/dom-differences.html  /docs/dom-elements.html  302
 /docs/special-non-dom-attributes.html  /docs/dom-elements.html  302
@@ -92,5 +92,5 @@
 /docs/tutorial-ja-JP.html  /tutorial/tutorial.html  302
 /docs/tutorial-ko-KR.html  /tutorial/tutorial.html  302
 /docs/tutorial-zh-CN.html  /tutorial/tutorial.html  302
-/blog/  /blog/2018/10/23/react-v-16-6.html  302
+/blog/  /blog/2018/11/27/react-16-roadmap.html  302
 docs/error-decoder:path?  /docs/error-decoder.html/  200
