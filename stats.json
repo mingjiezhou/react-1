@@ -597,8 +597,8 @@
       "path---blog-2014-04-04-reactnet-html-779865fae8d7c8da6db2.js.map"
     ],
     "path---docs-optimizing-performance-html": [
-      "path---docs-optimizing-performance-html-ca29a134965ce868899c.js",
-      "path---docs-optimizing-performance-html-ca29a134965ce868899c.js.map"
+      "path---docs-optimizing-performance-html-8178085450434ee6f83f.js",
+      "path---docs-optimizing-performance-html-8178085450434ee6f83f.js.map"
     ],
     "path---docs-code-splitting-html": [
       "path---docs-code-splitting-html-2fbf4a65aceb86a67007.js",
@@ -1109,9 +1109,9 @@
       "path---redirect-to-codepen-16-3-release-blog-post-fancy-button-example-96cb387294f2f9e75ddc.js.map"
     ],
     "app": [
-      "app-22e17cd11c6498d1c110.js",
+      "app-2079ca1be7991cf5075b.js",
       "build-js-styles.css",
-      "app-22e17cd11c6498d1c110.js.map",
+      "app-2079ca1be7991cf5075b.js.map",
       "build-js-styles.css.map"
     ],
     "path---docs-shallow-compare-html": [

@@ -15,8 +15,8 @@
 /docs/transferring-props-zh-CN.html  /docs/components-and-props.html  302
 /tips/props-in-getInitialState-as-anti-pattern.html  /docs/components-and-props.html  302
 /tips/communicate-between-components.html  /docs/components-and-props.html  302
-/docs/multiple-components.html  /docs/composition-vs-inheritance.html  302
 /tips/false-in-jsx.html  /docs/conditional-rendering.html  302
+/docs/multiple-components.html  /docs/composition-vs-inheritance.html  302
 /docs/add-react-to-a-new-app.html  /docs/create-a-new-react-app.html  302
 /docs/  /docs/getting-started.html  302
 /docs/index.html  /docs/getting-started.html  302
@@ -50,7 +50,6 @@
 /tips/children-props-type.html  /docs/jsx-in-depth.html  302
 /docs/jsx-in-depth-zh-CN.html  /docs/jsx-in-depth.html  302
 /docs/jsx-in-depth-ko-KR.html  /docs/jsx-in-depth.html  302
-/docs/advanced-performance.html  /docs/optimizing-performance.html  302
 /docs/flux-overview.html  /docs/lifting-state-up.html  302
 /docs/flux-todo-list.html  /docs/lifting-state-up.html  302
 /docs/tags-and-attributes.html  /docs/dom-elements.html  302
@@ -77,6 +76,7 @@
 /docs/thinking-in-react-zh-CN.html  /docs/thinking-in-react.html  302
 /blog/2014/10/14/introducting-react-elements.html  /blog/2014/10/14/introducing-react-elements.html  302
 /contributing/design-principles.html  /docs/design-principles.html  302
+/docs/advanced-performance.html  /docs/optimizing-performance.html  302
 /docs/component-api.html  /docs/react-component.html  302
 /docs/component-specs.html  /docs/react-component.html  302
 /docs/component-specs-ko-KR.html  /docs/react-component.html  302
