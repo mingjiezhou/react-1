@@ -6,6 +6,7 @@
 /index.html  /  302
 /support.html  /community/support.html  302
 /docs/videos.html  /community/videos.html  302
+/docs/multiple-components.html  /docs/composition-vs-inheritance.html  302
 /docs/reusable-components.html  /docs/components-and-props.html  302
 /docs/reusable-components-zh-CN.html  /docs/components-and-props.html  302
 /docs/transferring-props.html  /docs/components-and-props.html  302
@@ -16,7 +17,6 @@
 /tips/props-in-getInitialState-as-anti-pattern.html  /docs/components-and-props.html  302
 /tips/communicate-between-components.html  /docs/components-and-props.html  302
 /tips/false-in-jsx.html  /docs/conditional-rendering.html  302
-/docs/multiple-components.html  /docs/composition-vs-inheritance.html  302
 /docs/add-react-to-a-new-app.html  /docs/create-a-new-react-app.html  302
 /docs/  /docs/getting-started.html  302
 /docs/index.html  /docs/getting-started.html  302
