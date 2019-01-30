@@ -55,15 +55,15 @@ React components can also be defined as functions which can be wrapped:
 
 ### Refs
 
-- [`React.createRef`](https://reactjs.org/docs/react-api.html#reactcreateref)
-- [`React.forwardRef`](https://reactjs.org/docs/react-api.html#reactforwardref)
+- [`React.createRef`](#reactcreateref)
+- [`React.forwardRef`](#reactforwardref)
 
 ### Suspense
 
-Suspense lets components “wait” for something before rendering. Today, Suspense only supports one use case: [loading components dynamically with `React.lazy`](https://reactjs.org/docs/code-splitting.html#reactlazy). In the future, it will support other use cases like data fetching.
+Suspense lets components "wait" for something before rendering. Today, Suspense only supports one use case: [loading components dynamically with `React.lazy`](/docs/code-splitting.html#reactlazy). In the future, it will support other use cases like data fetching.
 
-- [`React.lazy`](https://reactjs.org/docs/react-api.html#reactlazy)
-- [`React.Suspense`](https://reactjs.org/docs/react-api.html#reactsuspense)
+- [`React.lazy`](#reactlazy)
+- [`React.Suspense`](#reactsuspense)
 
 * * *
 
@@ -127,11 +127,11 @@ function areEqual(prevProps, nextProps) {
 export default React.memo(MyComponent, areEqual);
 ```
 
-This method only exists as a **performance optimization.** Do not rely on it to “prevent” a render, as this can lead to bugs.
+This method only exists as a **[performance optimization](/docs/optimizing-performance.html).** Do not rely on it to "prevent" a render, as this can lead to bugs.
 
 > Note
 >
-> Unlike the [`shouldComponentUpdate()`](https://reactjs.org/docs/react-component.html#shouldcomponentupdate) method on class components, the `areEqual` function returns `true` if the props are equal and `false` if the props are not equal. This is the inverse from `shouldComponentUpdate`.
+> Unlike the [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) method on class components, the `areEqual` function returns `true` if the props are equal and `false` if the props are not equal. This is the inverse from `shouldComponentUpdate`.
 
 * * *
 
@@ -275,6 +275,7 @@ render() {
 ```
 
 You can also use it with the shorthand `<></>` syntax. For more information, see [React v16.2.0: Improved Support for Fragments](/blog/2017/11/28/react-v16.2.0-fragment-support.html).
+
 
 ### `React.createRef`
 

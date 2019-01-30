@@ -92,8 +92,8 @@ class LoginControl extends React.Component {
 
   render() {
     const isLoggedIn = this.state.isLoggedIn;
+    let button;
 
-    let button = null;
     if (isLoggedIn) {
       button = <LogoutButton onClick={this.handleLogoutClick} />;
     } else {
@@ -208,13 +208,13 @@ function WarningBanner(props) {
 class Page extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {showWarning: true}
+    this.state = {showWarning: true};
     this.handleToggleClick = this.handleToggleClick.bind(this);
   }
 
   handleToggleClick() {
-    this.setState(prevState => ({
-      showWarning: !prevState.showWarning
+    this.setState(state => ({
+      showWarning: !state.showWarning
     }));
   }
 

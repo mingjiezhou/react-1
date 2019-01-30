@@ -1,28 +1,50 @@
 ---
 id: introducing-jsx
-title: JSX 简介
+title: Introducing JSX
 permalink: docs/introducing-jsx.html
 prev: hello-world.html
 next: rendering-elements.html
 ---
 
-我们来观察一下声明的这个变量：
+Consider this variable declaration:
 
 ```js
 const element = <h1>Hello, world!</h1>;
 ```
 
-这种看起来可能有些奇怪的标签语法既不是字符串也不是 HTML。
+This funny tag syntax is neither a string nor HTML.
 
-它被称为 JSX， 一种 JavaScript 的语法扩展。 我们推荐在 React 中使用 JSX 来描述用户界面。JSX 乍看起来可能比较像是模版语言，但事实上它完全是在 JavaScript 内部实现的。
+It is called JSX, and it is a syntax extension to JavaScript. We recommend using it with React to describe what the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript.
 
-JSX 用来声明 React 当中的元素。在[下一个章节](/docs/rendering-elements.html)里面我们会详细介绍元素是如何被渲染出来的，接下来呢，我们先来看看 JSX 的基本使用方法。
+JSX produces React "elements". We will explore rendering them to the DOM in the [next section](/docs/rendering-elements.html). Below, you can find the basics of JSX necessary to get you started.
 
-### 在 JSX 中使用表达式
+### Why JSX?
 
- 你可以任意地在 JSX 当中使用 [JavaScript 表达式](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions)，在 JSX 当中的表达式要包含在大括号里。
+React embraces the fact that rendering logic is inherently coupled with other UI logic: how events are handled, how the state changes over time, and how the data is prepared for display.
 
- 例如 `2 + 2`， `user.firstName`， 以及 `formatName(user)` 都是可以使用的。
+Instead of artificially separating *technologies* by putting markup and logic in separate files, React [separates *concerns*](https://en.wikipedia.org/wiki/Separation_of_concerns) with loosely coupled units called "components" that contain both. We will come back to components in a [further section](/docs/components-and-props.html), but if you're not yet comfortable putting markup in JS, [this talk](https://www.youtube.com/watch?v=x7cQ3mrcKaY) might convince you otherwise.
+
+React [doesn't require](/docs/react-without-jsx.html) using JSX, but most people find it helpful as a visual aid when working with UI inside the JavaScript code. It also allows React to show more useful error and warning messages.
+
+With that out of the way, let's get started!
+
+### Embedding Expressions in JSX
+
+In the example below, we declare a variable called `name` and then use it inside JSX by wrapping it in curly braces:
+
+```js{1,2}
+const name = 'Josh Perez';
+const element = <h1>Hello, {name}</h1>;
+
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
+```
+
+You can put any valid [JavaScript expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) inside the curly braces in JSX. For example, `2 + 2`, `user.firstName`, or `formatName(user)` are all valid JavaScript expressions.
+
+In the example below, we embed the result of calling a JavaScript function, `formatName(user)`, into an `<h1>` element.
 
 ```js{12}
 function formatName(user) {

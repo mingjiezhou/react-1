@@ -188,4 +188,3 @@ xmlLang xmlSpace y y1 y2 yChannelSelector z zoomAndPan
 ```
 
 You may also use custom attributes as long as they're fully lowercase.
-

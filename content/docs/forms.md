@@ -1,15 +1,15 @@
 ---
 id: forms
-title: 表单
+title: Forms
 permalink: docs/forms.html
-prev: state-and-lifecycle.html
+prev: lists-and-keys.html
 next: lifting-state-up.html
 redirect_from:
   - "tips/controlled-input-null-value.html"
   - "docs/forms-zh-CN.html"
 ---
 
-HTML表单元素与React中的其他DOM元素有所不同,因为表单元素生来就保留一些内部状态。例如，下面这个表单只接受一个唯一的name。
+HTML form elements work a little bit differently from other DOM elements in React, because form elements naturally keep some internal state. For example, this form in plain HTML accepts a single name:
 
 ```html
 <form>

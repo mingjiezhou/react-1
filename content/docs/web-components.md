@@ -40,20 +40,23 @@ function BrickFlipbox() {
 }
 ```
 
-## 在Web组件中使用React
+## Using React in your Web Components
 
 ```javascript
-const proto = Object.create(HTMLElement.prototype, {
-  attachedCallback: {
-    value: function() {
-      const mountPoint = document.createElement('span');
-      this.createShadowRoot().appendChild(mountPoint);
+class XSearch extends HTMLElement {
+  connectedCallback() {
+    const mountPoint = document.createElement('span');
+    this.attachShadow({ mode: 'open' }).appendChild(mountPoint);
 
-      const name = this.getAttribute('name');
-      const url = 'https://www.google.com/search?q=' + encodeURIComponent(name);
-      ReactDOM.render(<a href={url}>{name}</a>, mountPoint);
-    }
+    const name = this.getAttribute('name');
+    const url = 'https://www.google.com/search?q=' + encodeURIComponent(name);
+    ReactDOM.render(<a href={url}>{name}</a>, mountPoint);
   }
-});
-document.registerElement('x-search', {prototype: proto});
+}
+customElements.define('x-search', XSearch);
 ```
+
+>Note:
+>
+>This code **will not** work if you transform classes with Babel. See [this issue](https://github.com/w3c/webcomponents/issues/587) for the discussion.
+>Include the [custom-elements-es5-adapter](https://github.com/webcomponents/webcomponentsjs#custom-elements-es5-adapterjs) before you load your web components to fix this issue.

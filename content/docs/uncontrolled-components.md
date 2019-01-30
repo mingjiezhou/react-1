@@ -55,7 +55,7 @@ render() {
         <input
           defaultValue="Bob"
           type="text"
-          ref={(input) => this.input = input} />
+          ref={this.input} />
       </label>
       <input type="submit" value="Submit" />
     </form>

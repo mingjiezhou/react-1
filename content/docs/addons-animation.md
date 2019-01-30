@@ -72,7 +72,7 @@ class TodoList extends React.Component {
 
 > Note:
 >
-> You must provide [the `key` attribute](/docs/multiple-components.html#dynamic-children) for all children of `ReactCSSTransitionGroup`, even when only rendering a single item. This is how React will determine which children have entered, left, or stayed.
+> You must provide [the `key` attribute](/docs/lists-and-keys.html#keys) for all children of `ReactCSSTransitionGroup`, even when only rendering a single item. This is how React will determine which children have entered, left, or stayed.
 
 In this component, when a new item is added to `ReactCSSTransitionGroup` it will get the `example-enter` CSS class and the `example-enter-active` CSS class added in the next tick. This is a convention based on the `transitionName` prop.
 
@@ -234,7 +234,7 @@ import ReactTransitionGroup from 'react-addons-transition-group' // ES6
 var ReactTransitionGroup = require('react-addons-transition-group') // ES5 with npm
 ```
 
-`ReactTransitionGroup` is the basis for animations. When children are declaratively added or removed from it (as in the [example above](#getting-started)), special lifecycle hooks are called on them.
+`ReactTransitionGroup` is the basis for animations. When children are declaratively added or removed from it (as in the [example above](#getting-started)), special lifecycle methods are called on them.
 
  - [`componentWillAppear()`](#componentwillappear)
  - [`componentDidAppear()`](#componentdidappear)

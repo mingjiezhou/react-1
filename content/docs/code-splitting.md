@@ -73,80 +73,175 @@ import("./math").then(math => {
 });
 ```
 
-> 注意：
+> Note:
 >
-> 动态 `imports()` 语法目前是 ECMAScript (JavaScript) [提案](https://github.com/tc39/proposal-dynamic-import) 而不是语言标准。期待其在不远的将来被接纳成为标准的一部分。
+> The dynamic `import()` syntax is a ECMAScript (JavaScript)
+> [proposal](https://github.com/tc39/proposal-dynamic-import) not currently
+> part of the language standard. It is expected to be accepted in the
+> near future.
 
-当 Webpack 解析到该语法时，它会自动地开始进行代码分割。如果你使用 Create React App，该功能已配置好，你已可以[开始使用](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting)。[Next.js](https://github.com/zeit/next.js/#dynamic-import) 也已支持该特性而无需再配置(out of box)。
+When Webpack comes across this syntax, it automatically starts code-splitting
+your app. If you're using Create React App, this is already configured for you
+and you can [start using it](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting) immediately. It's also supported
+out of the box in [Next.js](https://github.com/zeit/next.js/#dynamic-import).
 
-如果你自己配置 Webpack，你可能要阅读下 Webpack [关于代码分割的指南](https://webpack.js.org/guides/code-splitting/)。你的 Webpack 配置应该看起来有点[类似于此](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269)。
+If you're setting up Webpack yourself, you'll probably want to read Webpack's
+[guide on code splitting](https://webpack.js.org/guides/code-splitting/). Your Webpack config should look vaguely [like this](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269).
 
-当使用 [Babel](http://babeljs.io/) 时，你需要确保 Babel 能够解析动态引入语法而不是将其进行转换。对于这一要求你需要 [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import)。
+When using [Babel](http://babeljs.io/), you'll need to make sure that Babel can
+parse the dynamic import syntax but is not transforming it. For that you will need [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import).
 
-## 库
+## `React.lazy`
 
-### React Loadable
+> Note:
+>
+> `React.lazy` and Suspense is not yet available for server-side rendering. If you want to do code-splitting in a server rendered app, we recommend [Loadable Components](https://github.com/smooth-code/loadable-components). It has a nice [guide for bundle splitting with server-side rendering](https://github.com/smooth-code/loadable-components/blob/master/packages/server/README.md).
 
-[React Loadable](https://github.com/thejameskyle/react-loadable) 将动态引入(dynamic import)封装成了一个对 React 友好的 API 来在特定组件下引入代码分割的功能。
+The `React.lazy` function lets you render a dynamic import as a regular component.
 
-**之前:**
+**Before:**
 
 ```js
 import OtherComponent from './OtherComponent';
 
-const MyComponent = () => (
-  <OtherComponent/>
-);
+function MyComponent() {
+  return (
+    <div>
+      <OtherComponent />
+    </div>
+  );
+}
 ```
 
-**之后:**
+**After:**
 
 ```js
-import Loadable from 'react-loadable';
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
 
-const LoadableOtherComponent = Loadable({
-  loader: () => import('./OtherComponent'),
-  loading: () => <div>Loading...</div>,
-});
+function MyComponent() {
+  return (
+    <div>
+      <OtherComponent />
+    </div>
+  );
+}
+```
+
+This will automatically load the bundle containing the `OtherComponent` when this component gets rendered.
+
+`React.lazy` takes a function that must call a dynamic `import()`. This must return a `Promise` which resolves to a module with a `default` export containing a React component.
+
+### Suspense
+
+If the module containing the `OtherComponent` is not yet loaded by the time `MyComponent` renders, we must show some fallback content while we're waiting for it to load - such as a loading indicator. This is done using the `Suspense` component.
+
+```js
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+
+function MyComponent() {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <OtherComponent />
+      </Suspense>
+    </div>
+  );
+}
+```
+
+The `fallback` prop accepts any React elements that you want to render while waiting for the component to load. You can place the `Suspense` component anywhere above the lazy component. You can even wrap multiple lazy components with a single `Suspense` component.
+
+```js
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
+
+function MyComponent() {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <section>
+          <OtherComponent />
+          <AnotherComponent />
+        </section>
+      </Suspense>
+    </div>
+  );
+}
+```
+
+### Error boundaries
+
+If the other module fails to load (for example, due to network failure), it will trigger an error. You can handle these errors to show a nice user experience and manage recovery with [Error Boundaries](/docs/error-boundaries.html). Once you've created your Error Boundary, you can use it anywhere above your lazy components to display an error state when there's a network error.
+
+```js
+import MyErrorBoundary from './MyErrorBoundary';
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
 
 const MyComponent = () => (
-  <LoadableOtherComponent/>
+  <div>
+    <MyErrorBoundary>
+      <Suspense fallback={<div>Loading...</div>}>
+        <section>
+          <OtherComponent />
+          <AnotherComponent />
+        </section>
+      </Suspense>
+    </MyErrorBoundary>
+  </div>
 );
 ```
 
-React Loadable 帮助你创建[加载状态](https://github.com/thejameskyle/react-loadable#creating-a-great-loading-component)、[错误状态](https://github.com/thejameskyle/react-loadable#loading-error-states)、[超时](https://github.com/thejameskyle/react-loadable#timing-out-when-the-loader-is-taking-too-long)、[预加载](https://github.com/thejameskyle/react-loadable#preloading)等等。它甚至能通过大量的代码分割帮助进行[服务端渲染](https://github.com/thejameskyle/react-loadable#------------server-side-rendering)。
+## Route-based code splitting
 
-## 基于路由的代码分隔
+Deciding where in your app to introduce code splitting can be a bit tricky. You
+want to make sure you choose places that will split bundles evenly, but won't
+disrupt the user experience.
 
-决定在哪引入代码分割则需要一些技巧。你需要确保选择的位置能够均匀地分割代码包而不会影响用户体验。
+A good place to start is with routes. Most people on the web are used to
+page transitions taking some amount of time to load. You also tend to be
+re-rendering the entire page at once so your users are unlikely to be
+interacting with other elements on the page at the same time.
 
-一个不错的位置是从路由开始。大多数网络用户习惯于花费些时间在页面交互。你也可以立刻重渲整个页面这样你的用户则无法与页面的其他元素进行交互。
-
-这有一个使用类似 [React Router](https://reacttraining.com/react-router/) 和
-[React Loadable](https://github.com/thejameskyle/react-loadable) 库的关于如何配置基于路由的代码分割的例子。
+Here's an example of how to setup route-based code splitting into your app using
+libraries like [React Router](https://reacttraining.com/react-router/) with `React.lazy`.
 
 ```js
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Loadable from 'react-loadable';
+import React, { Suspense, lazy } from 'react';
 
-const Loading = () => <div>Loading...</div>;
-
-const Home = Loadable({
-  loader: () => import('./routes/Home'),
-  loading: Loading,
-});
-
-const About = Loadable({
-  loader: () => import('./routes/About'),
-  loading: Loading,
-});
+const Home = lazy(() => import('./routes/Home'));
+const About = lazy(() => import('./routes/About'));
 
 const App = () => (
   <Router>
-    <Switch>
-      <Route exact path="/" component={Home}/>
-      <Route path="/about" component={About}/>
-    </Switch>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route path="/about" component={About}/>
+      </Switch>
+    </Suspense>
   </Router>
 );
+```
+
+## Named Exports
+
+`React.lazy` currently only supports default exports. If the module you want to import uses named exports, you can create an intermediate module that reexports it as the default. This ensures that treeshaking keeps working and that you don't pull in unused components.
+
+```js
+// ManyComponents.js
+export const MyComponent = /* ... */;
+export const MyUnusedComponent = /* ... */;
+```
+
+```js
+// MyComponent.js
+export { MyComponent as default } from "./ManyComponents.js";
+```
+
+```js
+// MyApp.js
+import React, { lazy } from 'react';
+const MyComponent = lazy(() => import("./MyComponent.js"));
 ```

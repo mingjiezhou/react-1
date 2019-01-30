@@ -1,6 +1,6 @@
 ---
 id: refs-and-the-dom
-title: Refs & DOM
+title: Refs and the DOM
 redirect_from:
   - "docs/working-with-the-browser.html"
   - "docs/more-about-refs.html"

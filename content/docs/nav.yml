@@ -1,84 +1,85 @@
-- title: 安装
+- title: Installation
   items:
     - id: getting-started
-      title: 开始
-    - id: add-react-to-a-new-app
-      title: 使用 React 开发新项目
-    - id: add-react-to-an-existing-app
-      title: 在现有项目中添加 React
+      title: Getting Started
+    - id: add-react-to-a-website
+      title: Add React to a Website
+    - id: create-a-new-react-app
+      title: Create a New React App
     - id: cdn-links
-      title: CDN 支持
-- title: 主要概念
+      title: CDN Links
+- title: Main Concepts
+  isOrdered: true
   items:
     - id: hello-world
       title: Hello World
     - id: introducing-jsx
-      title: JSX 简介
+      title: Introducing JSX
     - id: rendering-elements
-      title: 元素渲染
+      title: Rendering Elements
     - id: components-and-props
-      title: 组件 & Props
+      title: Components and Props
     - id: state-and-lifecycle
-      title: State & 生命周期
+      title: State and Lifecycle
     - id: handling-events
-      title: 事件处理
+      title: Handling Events
     - id: conditional-rendering
-      title: 条件渲染
+      title: Conditional Rendering
     - id: lists-and-keys
-      title: 列表 & Keys
+      title: Lists and Keys
     - id: forms
-      title: 表单
+      title: Forms
     - id: lifting-state-up
-      title: 状态提升
+      title: Lifting State Up
     - id: composition-vs-inheritance
-      title: 组合 vs 继承
+      title: Composition vs Inheritance
     - id: thinking-in-react
-      title: React 理念
-- title: 高级指引
+      title: Thinking In React
+- title: Advanced Guides
   items:
-    - id: jsx-in-depth
-      title: 深入 JSX
-    - id: typechecking-with-proptypes
-      title: 使用 PropTypes 检查类型
-    - id: static-type-checking
-      title: 静态类型检查
-    - id: refs-and-the-dom
-      title: Refs & DOM
-    - id: uncontrolled-components
-      title: 非受控组件
-    - id: optimizing-performance
-      title: 性能优化
-    - id: react-without-es6
-      title: 不使用 ES6
-    - id: react-without-jsx
-      title: 不使用 JSX
-    - id: reconciliation
-      title: Reconciliation
-    - id: context
-      title: Context
-    - id: fragments
-      title: Fragments
-    - id: portals
-      title: Portals
-    - id: error-boundaries
-      title: Error Boundaries
-    - id: web-components
-      title: Web Components
-    - id: higher-order-components
-      title: 高阶组件
-    - id: forwarding-refs
-      title: 传递 Refs
-    - id: render-props
-      title: Render Props
-    - id: integrating-with-other-libraries
-      title: 与第三方库协同
     - id: accessibility
-      title: 可访问性
+      title: Accessibility
     - id: code-splitting
       title: Code-Splitting
+    - id: context
+      title: Context
+    - id: error-boundaries
+      title: Error Boundaries
+    - id: forwarding-refs
+      title: Forwarding Refs
+    - id: fragments
+      title: Fragments
+    - id: higher-order-components
+      title: Higher-Order Components
+    - id: integrating-with-other-libraries
+      title: Integrating with Other Libraries
+    - id: jsx-in-depth
+      title: JSX In Depth
+    - id: optimizing-performance
+      title: Optimizing Performance
+    - id: portals
+      title: Portals
+    - id: react-without-es6
+      title: React Without ES6
+    - id: react-without-jsx
+      title: React Without JSX
+    - id: reconciliation
+      title: Reconciliation
+    - id: refs-and-the-dom
+      title: Refs and the DOM
+    - id: render-props
+      title: Render Props
+    - id: static-type-checking
+      title: Static Type Checking
     - id: strict-mode
-      title: 严格模式
-- title: API 参考
+      title: Strict Mode
+    - id: typechecking-with-proptypes
+      title: Typechecking With PropTypes
+    - id: uncontrolled-components
+      title: Uncontrolled Components
+    - id: web-components
+      title: Web Components
+- title: API Reference
   items:
     - id: react-api
       title: React

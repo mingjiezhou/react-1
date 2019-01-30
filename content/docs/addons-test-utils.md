@@ -20,6 +20,8 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 with npm
 > Note:
 >
 > Airbnb has released a testing utility called Enzyme, which makes it easy to assert, manipulate, and traverse your React Components' output. If you're deciding on a unit testing utility to use together with Jest, or any other test runner, it's worth checking out: [http://airbnb.io/enzyme/](http://airbnb.io/enzyme/)
+>
+> Alternatively, there is another testing utility called react-testing-library designed to enable and encourage writing tests that use your components as the end users use them. It also works with any test runner: [https://git.io/react-testing-library](https://git.io/react-testing-library)
 
  - [`Simulate`](#simulate)
  - [`renderIntoDocument()`](#renderintodocument)
@@ -66,16 +68,16 @@ Simulate an event dispatch on a DOM node with optional `eventData` event data.
 **Clicking an element**
 
 ```javascript
-// <button ref="button">...</button>
-const node = this.refs.button;
+// <button ref={(node) => this.button = node}>...</button>
+const node = this.button;
 ReactTestUtils.Simulate.click(node);
 ```
 
 **Changing the value of an input field and then pressing ENTER.**
 
 ```javascript
-// <input ref="input" />
-const node = this.refs.input;
+// <input ref={(node) => this.textInput = node} />
+const node = this.textInput;
 node.value = 'giraffe';
 ReactTestUtils.Simulate.change(node);
 ReactTestUtils.Simulate.keyDown(node, {key: "Enter", keyCode: 13, which: 13});

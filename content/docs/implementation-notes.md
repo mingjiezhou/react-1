@@ -5,7 +5,8 @@ layout: contributing
 permalink: docs/implementation-notes.html
 prev: codebase-overview.html
 next: design-principles.html
-redirect_from: "contributing/implementation-notes.html"
+redirect_from:
+  - "contributing/implementation-notes.html"
 ---
 
 This section is a collection of implementation notes for the [stack reconciler](/docs/codebase-overview.html#stack-reconciler).
@@ -14,7 +15,7 @@ It is very technical and assumes a strong understanding of React public API as w
 
 It also assumes an understanding of the [differences between React components, their instances, and elements](/blog/2015/12/18/react-components-elements-and-instances.html).
 
-The stack reconciler is powering all the React production code today. It is located in [`src/renderers/shared/stack/reconciler`](https://github.com/facebook/react/tree/master/src/renderers/shared/stack) and is used by both React DOM and React Native.
+The stack reconciler was used in React 15 and earlier. It is located at [src/renderers/shared/stack/reconciler](https://github.com/facebook/react/tree/15-stable/src/renderers/shared/stack/reconciler).
 
 ### Video: Building React from Scratch
 
@@ -375,7 +376,7 @@ class DOMComponent {
 
 The main difference after refactoring from `mountHost()` is that we now keep `this.node` and `this.renderedChildren` associated with the internal DOM component instance. We will also use them for applying non-destructive updates in the future.
 
-As a result, each internal instance, composite or host, now points to its child internal instances. To help visualize this, if a functional `<App>` component renders a `<Button>` class component, and `Button` class renders a `<div>`, the internal instance tree would look like this:
+As a result, each internal instance, composite or host, now points to its child internal instances. To help visualize this, if a function `<App>` component renders a `<Button>` class component, and `Button` class renders a `<div>`, the internal instance tree would look like this:
 
 ```js
 [object CompositeComponent] {
@@ -433,7 +434,7 @@ mountTree(<App />, rootEl);
 
 ### Unmounting
 
-Now that we have internal instances that hold onto their children and the DOM nodes, we can implement unmounting. For a composite component, unmounting calls a lifecycle hook and recurses.
+Now that we have internal instances that hold onto their children and the DOM nodes, we can implement unmounting. For a composite component, unmounting calls a lifecycle method and recurses.
 
 ```js
 class CompositeComponent {
@@ -441,7 +442,7 @@ class CompositeComponent {
   // ...
 
   unmount() {
-    // Call the lifecycle hook if necessary
+    // Call the lifecycle method if necessary
     var publicInstance = this.publicInstance;
     if (publicInstance) {
       if (publicInstance.componentWillUnmount) {
@@ -513,7 +514,7 @@ function mountTree(element, containerNode) {
 }
 ```
 
-Now, running `unmountTree()`, or running `mountTree()` repeatedly, removes the old tree and runs the `componentWillUnmount()` lifecycle hook on components.
+Now, running `unmountTree()`, or running `mountTree()` repeatedly, removes the old tree and runs the `componentWillUnmount()` lifecycle method on components.
 
 ### Updating
 
@@ -553,7 +554,7 @@ This is the part that is often described as "virtual DOM diffing" although what 
 
 ### Updating Composite Components
 
-When a composite component receives a new element, we run the `componentWillUpdate()` lifecycle hook.
+When a composite component receives a new element, we run the `componentWillUpdate()` lifecycle method.
 
 Then we re-render the component with the new props, and get the next rendered element:
 
@@ -750,7 +751,7 @@ We collect DOM operations on children in a list so we can execute them in batch:
       // If we can't update an existing instance, we have to unmount it
       // and mount a new one instead of it.
       if (!canUpdate) {
-        var prevNode = prevChild.node;
+        var prevNode = prevChild.getHostNode();
         prevChild.unmount();
 
         var nextChild = instantiateComponent(nextChildren[i]);
@@ -770,12 +771,12 @@ We collect DOM operations on children in a list so we can execute them in batch:
 
     // Finally, unmount any children that don't exist:
     for (var j = nextChildren.length; j < prevChildren.length; j++) {
-     var prevChild = prevRenderedChildren[j];
-     var node = prevChild.node;
-     prevChild.unmount();
+      var prevChild = prevRenderedChildren[j];
+      var node = prevChild.getHostNode();
+      prevChild.unmount();
 
-     // Record that we need to remove the node
-     operationQueue.push({type: 'REMOVE', node});
+      // Record that we need to remove the node
+      operationQueue.push({type: 'REMOVE', node});
     }
 
     // Point the list of rendered children to the updated version.
@@ -867,9 +868,9 @@ This document is simplified compared to the real codebase. There are a few impor
 
 * The reconciler also takes care of attaching and detaching refs to composite components and host nodes.
 
-* Lifecycle hooks that are called after the DOM is ready, such as `componentDidMount()` and `componentDidUpdate()`, get collected into "callback queues" and are executed in a single batch.
+* Lifecycle methods that are called after the DOM is ready, such as `componentDidMount()` and `componentDidUpdate()`, get collected into "callback queues" and are executed in a single batch.
 
-* React puts information about the current update into an internal object called "transaction". Transactions are useful for keeping track of the queue of pending lifecycle hooks, the current DOM nesting for the warnings, and anything else that is "global" to a specific update. Transactions also ensure React "cleans everything up" after updates. For example, the transaction class provided by React DOM restores the input selection after any update.
+* React puts information about the current update into an internal object called "transaction". Transactions are useful for keeping track of the queue of pending lifecycle methods, the current DOM nesting for the warnings, and anything else that is "global" to a specific update. Transactions also ensure React "cleans everything up" after updates. For example, the transaction class provided by React DOM restores the input selection after any update.
 
 ### Jumping into the Code
 
