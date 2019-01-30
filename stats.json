@@ -453,8 +453,8 @@
       "path---versions-a0e39f21c11f6a62c5ab.js.map"
     ],
     "path---docs-react-component-html": [
-      "path---docs-react-component-html-c6a3eb52e85d98acc327.js",
-      "path---docs-react-component-html-c6a3eb52e85d98acc327.js.map"
+      "path---docs-react-component-html-70dce2052b89112a4d17.js",
+      "path---docs-react-component-html-70dce2052b89112a4d17.js.map"
     ],
     "path---docs-react-api-html": [
       "path---docs-react-api-html-e39c5cc91012cfbbb0bb.js",
@@ -1109,9 +1109,9 @@
       "path---redirect-to-codepen-16-3-release-blog-post-fancy-button-example-96cb387294f2f9e75ddc.js.map"
     ],
     "app": [
-      "app-5c7ae5d38c7049bdbf9b.js",
+      "app-498c1c87a0572b821f57.js",
       "build-js-styles.css",
-      "app-5c7ae5d38c7049bdbf9b.js.map",
+      "app-498c1c87a0572b821f57.js.map",
       "build-js-styles.css.map"
     ],
     "path---docs-shallow-compare-html": [
