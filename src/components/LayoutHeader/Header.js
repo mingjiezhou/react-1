@@ -7,7 +7,7 @@
 
 import Container from 'components/Container';
 import HeaderLink from './HeaderLink';
-import Link from 'gatsby-link';
+import {Link} from 'gatsby';
 import React from 'react';
 import {colors, fonts, media} from 'theme';
 import {version} from 'site-constants';
@@ -115,22 +115,22 @@ const Header = ({location}: {location: Location}) => (
           }}>
           <HeaderLink
             isActive={location.pathname.includes('/docs/')}
-            title="文档"
-            to="/docs/hello-world.html"
+            title="Docs"
+            to="/docs/getting-started.html"
           />
           <HeaderLink
             isActive={location.pathname.includes('/tutorial/')}
-            title="教程"
+            title="Tutorial"
             to="/tutorial/tutorial.html"
           />
           <HeaderLink
             isActive={location.pathname.includes('/community/')}
-            title="社区"
+            title="Community"
             to="/community/support.html"
           />
           <HeaderLink
             isActive={location.pathname.includes('/blog')}
-            title="博客"
+            title="Blog"
             to="/blog/"
           />
         </nav>
@@ -146,7 +146,7 @@ const Header = ({location}: {location: Location}) => (
               width: 'calc(100% / 6)',
             },
           }}>
-          <a
+          <Link
             css={{
               padding: '5px 10px',
               whiteSpace: 'nowrap',
@@ -162,9 +162,9 @@ const Header = ({location}: {location: Location}) => (
                 borderRadius: 15,
               },
             }}
-            href="/versions">
+            to="/versions">
             v{version}
-          </a>
+          </Link>
           <a
             css={{
               padding: '5px 10px',

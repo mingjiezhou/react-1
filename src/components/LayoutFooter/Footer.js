@@ -12,6 +12,7 @@ import FooterNav from './FooterNav';
 import MetaTitle from 'templates/components/MetaTitle';
 import React from 'react';
 import {colors, media} from 'theme';
+import {sectionListCommunity, sectionListDocs} from 'utils/sectionList';
 
 import ossLogoPng from 'images/oss_logo.png';
 
@@ -59,20 +60,28 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
             },
           }}>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
-            <MetaTitle onDark={true}>文档</MetaTitle>
-            <FooterLink to="/docs/hello-world.html">快速开始</FooterLink>
-            <FooterLink to="/docs/thinking-in-react.html">
-              React 理念
-            </FooterLink>
-            <FooterLink to="/tutorial/tutorial.html">入门教程</FooterLink>
-            <FooterLink to="/docs/jsx-in-depth.html">
-              高级指引
-            </FooterLink>
+            <MetaTitle onDark={true}>Docs</MetaTitle>
+            {sectionListDocs.map(section => {
+              const defaultItem = section.items[0];
+              return (
+                <FooterLink
+                  to={`/docs/${defaultItem.id}.html`}
+                  key={section.title}>
+                  {section.title}
+                </FooterLink>
+              );
+            })}
           </FooterNav>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
-            <MetaTitle onDark={true}>社区</MetaTitle>
+            <MetaTitle onDark={true}>Channels</MetaTitle>
             <ExternalFooterLink
-              href="http://stackoverflow.com/questions/tagged/reactjs"
+              href="https://github.com/facebook/react"
+              target="_blank"
+              rel="noopener">
+              GitHub
+            </ExternalFooterLink>
+            <ExternalFooterLink
+              href="https://stackoverflow.com/questions/tagged/reactjs"
               target="_blank"
               rel="noopener">
               Stack Overflow
@@ -81,13 +90,19 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
               href="https://discuss.reactjs.org"
               target="_blank"
               rel="noopener">
-              Discussion 论坛
+              Discussion Forum
             </ExternalFooterLink>
             <ExternalFooterLink
               href="https://discord.gg/0ZcbPKXt5bZjGY5n"
               target="_blank"
               rel="noopener">
-              Reactiflux 聊天室
+              Reactiflux Chat
+            </ExternalFooterLink>
+            <ExternalFooterLink
+              href="https://dev.to/t/react"
+              target="_blank"
+              rel="noopener">
+              DEV Community
             </ExternalFooterLink>
             <ExternalFooterLink
               href="https://www.facebook.com/react"
@@ -103,34 +118,28 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
             </ExternalFooterLink>
           </FooterNav>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
-            <MetaTitle onDark={true}>参考资料</MetaTitle>
-            <FooterLink to="/community/conferences.html">
-              会议
-            </FooterLink>
-            <FooterLink to="/community/videos.html">视频</FooterLink>
-            <FooterLink to="/community/examples.html">示例</FooterLink>
-            <FooterLink to="/community/debugging-tools.html">
-              开发工具
-            </FooterLink>
+            <MetaTitle onDark={true}>Community</MetaTitle>
+            {sectionListCommunity.map(section => (
+              <FooterLink
+                to={`/community/${section.items[0].id}.html`}
+                key={section.title}>
+                {section.title}
+              </FooterLink>
+            ))}
           </FooterNav>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
-            <MetaTitle onDark={true}>其他</MetaTitle>
-            <FooterLink to="/blog/">博客</FooterLink>
+            <MetaTitle onDark={true}>More</MetaTitle>
+            <FooterLink to="/tutorial/tutorial.html">Tutorial</FooterLink>
+            <FooterLink to="/blog/">Blog</FooterLink>
+            <FooterLink to="/acknowledgements.html">
+              Acknowledgements
+            </FooterLink>
             <ExternalFooterLink
-              href="https://github.com/facebook/react"
-              target="_blank"
-              rel="noopener">
-              GitHub
-            </ExternalFooterLink>
-            <ExternalFooterLink
-              href="http://facebook.github.io/react-native/"
+              href="https://facebook.github.io/react-native/"
               target="_blank"
               rel="noopener">
               React Native
             </ExternalFooterLink>
-            <FooterLink to="/acknowledgements.html">
-              致谢
-            </FooterLink>
           </FooterNav>
         </div>
         <section
@@ -170,14 +179,7 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
               color: colors.subtleOnDark,
               paddingTop: 15,
             }}>
-            Copyright © 2017 Facebook Inc.
-          </p>
-          <p
-            css={{
-              color: colors.subtleOnDark,
-              paddingTop: 15,
-            }}>
-            <a href="https://docschina.org/" target="_blank">印记中文</a>
+            Copyright © 2018 Facebook Inc.
           </p>
         </section>
       </div>

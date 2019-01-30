@@ -45,14 +45,16 @@ type Size = $Keys<typeof SIZES>;
 const media = {
   between(smallKey: Size, largeKey: Size, excludeLarge: boolean = false) {
     if (excludeLarge) {
-      return `@media (min-width: ${SIZES[smallKey]
-        .min}px) and (max-width: ${SIZES[largeKey].min - 1}px)`;
+      return `@media (min-width: ${
+        SIZES[smallKey].min
+      }px) and (max-width: ${SIZES[largeKey].min - 1}px)`;
     } else {
       if (SIZES[largeKey].max === Infinity) {
         return `@media (min-width: ${SIZES[smallKey].min}px)`;
       } else {
-        return `@media (min-width: ${SIZES[smallKey]
-          .min}px) and (max-width: ${SIZES[largeKey].max}px)`;
+        return `@media (min-width: ${SIZES[smallKey].min}px) and (max-width: ${
+          SIZES[largeKey].max
+        }px)`;
       }
     }
   },
@@ -118,6 +120,9 @@ const sharedStyles = {
         maxWidth: 840,
         marginLeft: 'auto',
         marginRight: 'auto',
+      },
+      [media.lessThan('small')]: {
+        flexDirection: 'column',
       },
     },
     content: {
@@ -239,7 +244,7 @@ const sharedStyles = {
 
     '& p > code, & li > code, & p > a > code, & li > a > code': {
       padding: '0 3px',
-      fontSize: 16,
+      fontSize: '0.94em', // 16px on 17px text, smaller in smaller text
       wordBreak: 'break-word',
     },
 
@@ -299,6 +304,11 @@ const sharedStyles = {
     '& h3': {
       paddingTop: 45,
 
+      [media.lessThan('small')]: {
+        overflowWrap: 'break-word',
+        wordBreak: 'break-word',
+      },
+
       [media.greaterThan('xlarge')]: {
         fontSize: 25,
         lineHeight: 1.3,
@@ -334,7 +344,7 @@ const sharedStyles = {
       },
 
       '& li': {
-        marginTop: 20,
+        marginTop: 10,
       },
 
       '& li.button-newapp': {
@@ -343,6 +353,7 @@ const sharedStyles = {
 
       '& ol, & ul': {
         marginLeft: 20,
+        marginTop: 10,
       },
     },
 

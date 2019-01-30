@@ -6,7 +6,7 @@
 
 import Container from 'components/Container';
 import Flex from 'components/Flex';
-import Link from 'gatsby-link';
+import {Link} from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {colors, fonts, media} from 'theme';
@@ -40,7 +40,7 @@ const NavigationFooter = ({next, prev, location}) => {
           <Flex basis="50%" type="li">
             {prev && (
               <div>
-                <SecondaryLabel>上一篇</SecondaryLabel>
+                <SecondaryLabel>Previous article</SecondaryLabel>
                 <div
                   css={{
                     paddingTop: 10,
@@ -61,7 +61,7 @@ const NavigationFooter = ({next, prev, location}) => {
                 textAlign: 'right',
               }}>
               <div>
-                <SecondaryLabel>下一篇</SecondaryLabel>
+                <SecondaryLabel>Next article</SecondaryLabel>
                 <div
                   css={{
                     paddingTop: 10,

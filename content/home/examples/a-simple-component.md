@@ -1,6 +1,7 @@
 ---
 title: 组件
 order: 0
+domid: hello-example
 ---
 
 React 组件使用一个名为 `render()` 的方法， 接收数据作为输入，输出页面中对应展示的内容。 下面这个示例中类似XML的写法被称为JSX. 输入的数据通过 `this.props` 传入 `render()` 方法。
