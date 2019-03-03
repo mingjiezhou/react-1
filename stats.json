@@ -789,8 +789,8 @@
       "path---redirect-to-codepen-update-on-async-rendering-side-effects-when-props-change-before-6b353910ff5ce7ceee3b.js.map"
     ],
     "path---docs-error-decoder-html": [
-      "path---docs-error-decoder-html-27dc3ca0e9589b26f072.js",
-      "path---docs-error-decoder-html-27dc3ca0e9589b26f072.js.map"
+      "path---docs-error-decoder-html-6b5580533d0936d3d1f3.js",
+      "path---docs-error-decoder-html-6b5580533d0936d3d1f3.js.map"
     ],
     "component---src-pages-404-js": [
       "component---src-pages-404-js-9eb55395052628367e05.js",
@@ -853,8 +853,8 @@
       "path---blog-2015-02-20-introducing-relay-and-graphql-html-28653d13ad7290e7d869.js.map"
     ],
     "path---docs-jsx-in-depth-html": [
-      "path---docs-jsx-in-depth-html-64601fd48d60d5abe250.js",
-      "path---docs-jsx-in-depth-html-64601fd48d60d5abe250.js.map"
+      "path---docs-jsx-in-depth-html-db003648d2cd26199791.js",
+      "path---docs-jsx-in-depth-html-db003648d2cd26199791.js.map"
     ],
     "path---docs-hello-world-html": [
       "path---docs-hello-world-html-133eb796620e0ea1ff0b.js",
@@ -1113,9 +1113,9 @@
       "path---redirect-to-codepen-16-3-release-blog-post-fancy-button-example-96cb387294f2f9e75ddc.js.map"
     ],
     "app": [
-      "app-3070a85460a159f8a1b0.js",
+      "app-672fb2b837b26753bb80.js",
       "build-js-styles.css",
-      "app-3070a85460a159f8a1b0.js.map",
+      "app-672fb2b837b26753bb80.js.map",
       "build-js-styles.css.map"
     ],
     "path---docs-shallow-compare-html": [
