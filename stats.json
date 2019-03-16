@@ -1077,8 +1077,8 @@
       "path---docs-addons-html-8bac1b6d333903486009.js.map"
     ],
     "path---docs-fragments-html": [
-      "path---docs-fragments-html-537f843b598f2168ff8c.js",
-      "path---docs-fragments-html-537f843b598f2168ff8c.js.map"
+      "path---docs-fragments-html-48447b1967f590404054.js",
+      "path---docs-fragments-html-48447b1967f590404054.js.map"
     ],
     "path---blog-2015-03-04-community-roundup-25-html": [
       "path---blog-2015-03-04-community-roundup-25-html-d2078d98d61a4f59299f.js",
@@ -1113,9 +1113,9 @@
       "path---redirect-to-codepen-16-3-release-blog-post-fancy-button-example-96cb387294f2f9e75ddc.js.map"
     ],
     "app": [
-      "app-d71323da54139d12911e.js",
+      "app-c24444bd6aa7566d9cee.js",
       "build-js-styles.css",
-      "app-d71323da54139d12911e.js.map",
+      "app-c24444bd6aa7566d9cee.js.map",
       "build-js-styles.css.map"
     ],
     "path---docs-shallow-compare-html": [
