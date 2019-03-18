@@ -15,6 +15,7 @@ class NameForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.input = React.createRef();
   }
 
   handleSubmit(event) {
